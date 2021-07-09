@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.kunaljuneja.sdk">
+
+    <uses-feature android:name="android.hardware.type.watch" />
+
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-permission android:name="android.permission.BODY_SENSORS"/>
+    <uses-permission android:name="android.permission.ACTIVITY_RECOGNITION"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@android:style/Theme.DeviceDefault">
+        <uses-library
+            android:name="com.google.android.wearable"
+            android:required="true" />
+
+        <meta-data
+            android:name="com.google.android.wearable.standalone"
+            android:value="true" />
+
+        <activity android:name=".muteoncall.MuteOnCallActivity"/>
+        <service android:name=".muteoncall.FloatingViewService"/>
+        <receiver android:name=".muteoncall.CallStateReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.PHONE_STATE"/>
+            </intent-filter>
+        </receiver>
+
+        <activity android:name=".sleepdetection.SleepSensorMainActivity$SleepSensorPermissionCheck"/>
+        <service android:name=".sleepdetection.SleepSensorForegroundService"/>
+        <receiver android:name=".sleepdetection.ResetBroadcast"/>
+
+        <activity android:name=".sleepapi.SleepAPIMainActivity$SleepAPIPermissionCheck"/>
+        <receiver android:name=".sleepapi.SleepReceiver"/>
+        <service android:name=".SleepNotificationService"/>
+
+        <activity android:name=".keyboard.KeyboardMainActivity"/>
+        <activity android:name=".keyboard.ConnectedActivity"/>
+
+    </application>
+
+</manifest>

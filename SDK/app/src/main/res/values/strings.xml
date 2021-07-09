@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">SDK</string>
+    <string name="hello_world">Hello World</string>
+    <string name="heart_sensor">Heart Sensor</string>
+    <string name="cancel_to_stop">Turning Off TV in 30 sec. Press cancel to stop</string>
+    <string name="permission">Permission</string>
+    <string name="sleep_detection">Sleep Detection</string>
+</resources>
